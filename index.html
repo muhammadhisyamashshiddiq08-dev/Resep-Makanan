@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ResepKu - Platform pencarian resep makanan terlengkap dari seluruh dunia.">
+    <title>ResepKu - Temukan Inspirasi Masakan Lezat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100" tabindex="0">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-utensils me-2"></i>ResepKu
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#hero">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resep-terbaru">Resep Terbaru</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resep-populer">Resep Populer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-warning text-white px-4 rounded-pill fw-bold" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container text-center text-white position-relative" style="z-index: 2;" data-aos="fade-up" data-aos-duration="1500">
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">🔥 Selamat Datang di ResepKu</span>
+            <h1 class="display-3 fw-bold mb-3">Temukan Inspirasi <br> Masakan Lezat</h1>
+            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Jelajahi ribuan resep dari seluruh dunia, langsung dari dapur kami ke meja makan Anda. Dibuat dengan cinta, disajikan dengan detail.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#resep-terbaru" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow rounded-pill">Lihat Resep <i class="fas fa-arrow-down ms-2"></i></a>
+                <a href="#tentang" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold rounded-pill">Pelajari Lebih</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FITUR PENCARIAN ================= -->
+    <section class="py-5" id="fitur-pencarian" style="margin-top: -80px; position: relative; z-index: 10;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-lg border-0 rounded-4 p-4" data-aos="fade-up">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-lg-5 col-md-6">
+                                <label class="form-label fw-bold text-dark"><i class="fas fa-search me-1 text-warning"></i> Cari Resep</label>
+                                <div class="input-group">
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Contoh: Chicken, Pasta...">
+                                    <button class="btn btn-warning text-white" id="searchBtn"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <label class="form-label fw-bold text-dark"><i class="fas fa-filter me-1 text-warning"></i> Kategori</label>
+                                <select id="categoryFilter" class="form-select">
+                                    <option value="">Semua Kategori</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Vegetarian">Vegetarian</option>
+                                    <option value="Beef">Daging Sapi</option>
+                                    <option value="Chicken">Ayam</option>
+                                    <option value="Pasta">Pasta</option>
+                                    <option value="Breakfast">Sarapan</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-12">
+                                <button class="btn btn-outline-secondary w-100 rounded-3" id="resetBtn"><i class="fas fa-sync-alt me-1"></i> Reset Pencarian</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= RESEP TERBARU ================= -->
+    <section class="py-5" id="resep-terbaru">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold display-5">Resep Terbaru</h2>
+                <div class="divider mx-auto"></div>
+                <p class="text-muted mt-3">Resep pilihan yang baru saja ditambahkan oleh komunitas kami</p>
+            </div>
+            <div class="row g-4" id="recipeList">
+                <div class="text-center w-100 py-5">
+                    <div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;"></div>
+                    <p class="mt-3 text-muted fw-bold">Memuat resep lezat...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= RESEP POPULER ================= -->
+    <section class="py-5" id="resep-populer" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold display-5">Resep Populer</h2>
+                <div class="divider mx-auto"></div>
+                <p class="text-muted mt-3">Paling banyak dicari dan disukai oleh pengguna</p>
+            </div>
+            <div class="row g-4" id="popularRecipeList"></div>
+        </div>
+    </section>
+
+    <!-- ================= TENTANG KAMI ================= -->
+    <section class="py-5" id="tentang">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tentang Kami" class="img-fluid rounded-4 shadow-lg">
+                        <div class="position-absolute bottom-0 start-0 bg-warning text-white p-4 rounded-4 m-3 shadow">
+                            <h3 class="fw-bold mb-0">1000+</h3>
+                            <p class="mb-0 small">Resep Terverifikasi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill">Tentang Kami</span>
+                    <h2 class="fw-bold mb-4 display-5">Membantu Anda Memasak dengan Percaya Diri</h2>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">ResepKu adalah platform kuliner yang didedikasikan untuk membantu Anda menemukan inspirasi masakan sehari-hari. Kami mengintegrasikan data dari API terpercaya untuk menyajikan resep yang akurat, lengkap dengan bahan dan langkah memasak.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning me-3 mt-1"></i>
+                            <div><strong class="text-dark">Ribuan Resep</strong><br><span class="text-muted small">Dari seluruh penjuru dunia.</span></div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning me-3 mt-1"></i>
+                            <div><strong class="text-dark">Tampilan Responsif</strong><br><span class="text-muted small">Nyaman diakses di HP, Tablet, & Desktop.</span></div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning me-3 mt-1"></i>
+                            <div><strong class="text-dark">Pencarian Cepat</strong><br><span class="text-muted small">Temukan resep sesuai selera Anda.</span></div>
+                        </li>
+                    </ul>
+                    <a href="#resep-terbaru" class="btn btn-warning text-white px-4 py-3 fw-bold rounded-pill">Mulai Jelajahi <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="py-5" id="faq" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold display-5">Pertanyaan Umum</h2>
+                <div class="divider mx-auto"></div>
+                <p class="text-muted mt-3">Segala hal yang perlu Anda ketahui tentang ResepKu</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion" data-aos="fade-up">
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <i class="fas fa-question-circle text-warning me-2"></i> Apakah data resep di sini gratis?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Ya, seluruh data resep yang kami tampilkan berasal dari API publik TheMealDB dan dapat diakses secara gratis untuk keperluan belajar maupun referensi masakan.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <i class="fas fa-question-circle text-warning me-2"></i> Bagaimana cara mencari resep tertentu?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Anda dapat menggunakan fitur pencarian di bagian atas halaman. Cukup ketik nama masakan (misal: "Chicken") lalu tekan tombol pencarian atau Enter.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <i class="fas fa-question-circle text-warning me-2"></i> Apakah website ini responsif?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Tentu. Website ini dibangun menggunakan Bootstrap 5 dan telah diuji pada perangkat mobile, tablet, dan desktop untuk memastikan pengalaman terbaik.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <i class="fas fa-question-circle text-warning me-2"></i> Dari mana sumber data resepnya?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Kami menggunakan TheMealDB API, sebuah database resep makanan internasional yang menyediakan data secara real-time dan gratis.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT FORM ================= -->
+    <section class="py-5" id="kontak">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden" data-aos="zoom-in">
+                        <div class="row g-0">
+                            <div class="col-md-5 bg-warning text-white p-5 d-flex flex-column justify-content-center position-relative" style="background: var(--gradient-primary) !important;">
+                                <h3 class="fw-bold mb-3">Hubungi Kami</h3>
+                                <p class="mb-4 opacity-75">Punya pertanyaan, saran, atau ingin bekerja sama? Kirimkan pesan langsung ke WhatsApp kami.</p>
+                                <p class="mb-2"><i class="fab fa-whatsapp me-3"></i> 0882-1968-7504</p>
+                                <p class="mb-2"><i class="fas fa-envelope me-3"></i> info@resepku.com</p>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt me-3"></i> Jakarta, Indonesia</p>
+                            </div>
+                            <div class="col-md-7 p-5 bg-white">
+                                <h4 class="fw-bold mb-4">Kirim Pesan via WhatsApp</h4>
+                                <form id="contactForm">
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">Nama Lengkap</label>
+                                        <input type="text" id="contactName" class="form-control" required placeholder="Masukkan nama Anda">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">Email</label>
+                                        <input type="email" id="contactEmail" class="form-control" required placeholder="nama@email.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">Pesan</label>
+                                        <textarea id="contactMessage" class="form-control" rows="3" required placeholder="Tulis pesan Anda di sini..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-success w-100 fw-bold py-3 rounded-3">
+                                        <i class="fab fa-whatsapp me-2"></i> Kirim ke WhatsApp
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer-section text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="fw-bold mb-3 text-warning"><i class="fas fa-utensils me-2"></i>ResepKu</h4>
+                    <p class="text-white-50 mb-4" style="line-height: 1.8;">Platform pencarian resep makanan terlengkap dan terpercaya. Temukan inspirasi masakan lezat dari seluruh dunia.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="fw-bold mb-3 text-warning text-uppercase" style="letter-spacing: 1px;">Menu</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#hero"><i class="fas fa-chevron-right me-2 small"></i>Beranda</a></li>
+                        <li><a href="#resep-terbaru"><i class="fas fa-chevron-right me-2 small"></i>Resep Terbaru</a></li>
+                        <li><a href="#resep-populer"><i class="fas fa-chevron-right me-2 small"></i>Resep Populer</a></li>
+                        <li><a href="#tentang"><i class="fas fa-chevron-right me-2 small"></i>Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="fw-bold mb-3 text-warning text-uppercase" style="letter-spacing: 1px;">Bantuan</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#faq"><i class="fas fa-chevron-right me-2 small"></i>FAQ</a></li>
+                        <li><a href="#kontak"><i class="fas fa-chevron-right me-2 small"></i>Kontak</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small"></i>Kebijakan Privasi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small"></i>Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3 text-warning text-uppercase" style="letter-spacing: 1px;">Newsletter</h6>
+                    <p class="text-white-50 small mb-3">Dapatkan resep terbaru langsung di inbox Anda setiap minggu.</p>
+                    <div class="input-group mb-3 newsletter-group">
+                        <input type="email" class="form-control newsletter-input" placeholder="Alamat Email Anda">
+                        <button class="btn btn-warning text-dark fw-bold" type="button"><i class="fas fa-paper-plane me-1"></i> Kirim</button>
+                    </div>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-shield-alt me-1 text-warning"></i> Kami tidak akan mengirim spam.</p>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <p class="text-white-50 small mb-0">&copy; 2026 <span class="text-warning fw-bold">ResepKu</span>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-white-50 small mb-0">Dibuat dengan <i class="fas fa-heart text-danger mx-1"></i> untuk Proyek Magang</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
